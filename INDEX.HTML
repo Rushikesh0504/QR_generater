@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE DEVLOPING SYSTEM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <nav>
+        <a href=""><LI>HOME</LI></a>
+           <a href=""><LI>ABOUT US</LI></a>
+           <a href=""><LI>SIGN-UP</LI></a>
+           <a href=""><LI>LOGIN</LI></a>
+    </nav> -->
+    <div class="container">
+
+        <p>ENTER YOUR TEXT/URL</p>
+
+        <input type="text" placeholder="text or url" id="qrText">
+
+        <div id="imgbox">
+            <img src="" id="qrImage">
+        </div>
+
+        <button onclick="genrateQR()" > GENERAT THE QR CODE</button>
+        <button onclick="clearInput()"> Clear URL</button>
+    </div>
+    <script>
+        let imgbox = document.getElementById("imgbox")
+        let qrImage = document.getElementById("qrImage")
+        let qrText = document.getElementById("qrText")
+
+        function clearInput() {
+            qrText.value = ""
+         
+        }
+
+        function genrateQR() {
+            if (qrText.value.length > 0) {
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+                imgbox.classList.add("show-img");
+            }
+        }
+        
+        
+
+
+
+    </script>
+</body>
+
+</html>
